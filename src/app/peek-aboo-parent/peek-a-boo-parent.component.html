@@ -1,1 +1,22 @@
-<app-peek-a-boo-component></app-peek-a-boo-component>
+<div>
+  <div class="parent">
+    <h2>Peek-A-Boo</h2>
+
+    <button type="button" (click)="toggleChild()">
+      {{ hasChild ? "Destroy" : "Create" }} PeekABooComponent
+    </button>
+    <button type="button" (click)="updateHero()" [hidden]="!hasChild">
+      Update Hero
+    </button>
+
+    <div class="info">
+      <app-peek-a-boo-component
+        *ngIf="hasChild"
+        [name]="heroName"
+      ></app-peek-a-boo-component>
+
+      <h3>Lifecycle Hook Log</h3>
+      <div *ngFor="let msg of hookLog" class="log">{{ msg }}</div>
+    </div>
+  </div>
+</div>
