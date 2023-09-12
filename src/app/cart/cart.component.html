@@ -1,0 +1,7 @@
+<h2>Shopping Cart</h2>
+<ng-container *ngFor="let item of cartItems">
+  <app-cart-item [item]="item"></app-cart-item>
+</ng-container>
+<p>Total Price: ${{ totalPrice }}</p>
+<button (click)="addItem()">Add Item</button>
+<button (click)="removeItem()">Remove Item</button>
